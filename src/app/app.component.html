@@ -1,2 +1,12 @@
-
-
+<nav class="blue darken-1">
+    <div class="nav-wrapper">
+        <a routerLink="/home" class="brand-logo">SaludEnCasa</a>
+        <ul class="right hide-on-med-and-down">
+            <li routerLinkActive="active"><a routerLink="/home">Inicio</a></li>
+            <li routerLinkActive="active"><a routerLink="/products">Productos</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
