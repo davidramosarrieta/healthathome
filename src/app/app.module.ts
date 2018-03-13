@@ -1,13 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-//Rutas
-import { app_routing } from './app.routes';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+
+//Services
+import { UserService } from './services/user.service';
+import { GuestGuard } from './guest.guard';
+import { LoginGuard } from './login.guard';
+
+import {HttpClientModule} from '@angular/common/http';
+
+//Rutas
+import { app_routing } from './app.routes';
 
 
 @NgModule({
@@ -15,13 +24,16 @@ import { RegisterComponent } from './components/register/register.component';
     AppComponent,
     HomeComponent,
     ProductsComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
-    app_routing
+    FormsModule,
+    HttpClientModule,
+    app_routing,
   ],
-  providers: [],
+  providers: [UserService, GuestGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
