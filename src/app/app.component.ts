@@ -20,6 +20,7 @@ export class AppComponent {
 		if (!value['user'] || !value['password']) { return; }
 		this.userService.logUser(value as LoginUser)
 		.subscribe(response => {
+			console.log(response);
 			if(response['token'] != null) {
 				localStorage.setItem('token', response['token']);
 				this.is_login = true;

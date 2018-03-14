@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { LoginUser, CreateUser } from '../class_objects/user';
+import { LoginUser, CreateUser, ChangePassword } from '../class_objects/user';
 
 
 const httpOptions = {
@@ -47,6 +47,14 @@ export class UserService {
 	  	return this.http.post<CreateUser>(this.new_user_url, create_user, httpOptions)
 	    .pipe(
 	      catchError(this.handleError('createUser', create_user))
+	    );
+	}
+
+	/** POST: log User */
+	changePasswordUser (change_password: ChangePassword): Observable<ChangePassword> {
+	  	return this.http.post<ChangePassword>(this.change_password_url, change_password, httpOptions)
+	    .pipe(
+	      catchError(this.handleError('changePasswordUser', change_password))
 	    );
 	}
 

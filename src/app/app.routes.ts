@@ -16,7 +16,7 @@ const app_routes: Routes = [
   { path: 'products', component: ProductsComponent, canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [LoginGuard]  },
-  //{ path: '**', pathMatch:'full', redirectTo: 'home' }
+  { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 
 export const app_routing = RouterModule.forRoot(app_routes);
