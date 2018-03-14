@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
 
 	constructor() { }
+	is_login = localStorage.getItem('token') != null;
+	is_guest = localStorage.getItem('token') == null;
 
 	ngOnInit() {
 	}

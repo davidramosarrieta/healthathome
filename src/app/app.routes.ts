@@ -9,8 +9,8 @@ import { ChangePasswordComponent } from "./components/change-password/change-pas
 
 
 const app_routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [GuestGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [GuestGuard] },
+  { path: '', component: HomeComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'products', component: ProductsComponent, canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [LoginGuard] },
