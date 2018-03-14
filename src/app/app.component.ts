@@ -24,7 +24,7 @@ export class AppComponent {
 				localStorage.setItem('token', response['token']);
 				this.is_login = true;
 				this.is_guest = false;
-				this.router.navigate(['/products']);
+				this.router.navigate(['/categories']);
 			}
 		});
 	}

@@ -24,6 +24,8 @@ export class UserService {
 
 	private new_user_url = 'http://13.90.130.197/user';
 
+	private change_password_url = 'http://13.90.130.197/login/change-password';
+
 	
 
   	constructor(public http: HttpClient) { }

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
@@ -20,13 +21,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { app_routing } from './app.routes';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductsComponent,
     RegisterComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
