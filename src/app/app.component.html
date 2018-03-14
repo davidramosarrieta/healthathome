@@ -4,7 +4,7 @@
         <ul class="right hide-on-med-and-down">
             <li routerLinkActive="active"><a routerLink="/home">Inicio</a></li>
             <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/products">Productos</a></li>
-            <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/change-password">Cambiar contraseña</a></li>
+            <li routerLinkActive="active"><a routerLink="/change-password">Cambiar contraseña</a></li>
             <li routerLinkActive="active" *ngIf="is_login"><a (click)="logout()">Salir</a></li>
         </ul>
     </div>

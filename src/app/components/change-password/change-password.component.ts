@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { Toast } from 'materialize-css/js/toasts.js';
 
 @Component({
   selector: 'app-change-password',
@@ -8,9 +9,11 @@ import { Router } from "@angular/router";
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit() {
-  }
+	change_password_message = localStorage.getItem('change-password-message');
+
+	ngOnInit() {
+	}
 
 }

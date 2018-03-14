@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
 	is_guest = localStorage.getItem('token') == null;
 
 	ngOnInit() {
+		
 	}
 
 }

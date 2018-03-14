@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { LoginUser } from '../class_objects/user';
+import { LoginUser, CreateUser } from '../class_objects/user';
 
 
 const httpOptions = {
@@ -22,6 +22,8 @@ export class UserService {
 
 	private login_url = 'http://13.90.130.197/login';
 
+	private new_user_url = 'http://13.90.130.197/user';
+
 	
 
   	constructor(public http: HttpClient) { }
@@ -30,11 +32,19 @@ export class UserService {
     	//return this.http.get(this.login_url+'productos');
 	//}
 
-	/** POST: add a new hero to the database */
+	/** POST: log User */
 	logUser (login_user: LoginUser): Observable<LoginUser> {
 	  	return this.http.post<LoginUser>(this.login_url, login_user, httpOptions)
 	    .pipe(
 	      catchError(this.handleError('logUser', login_user))
+	    );
+	}
+
+	/** POST: log User */
+	createUser (create_user: CreateUser): Observable<CreateUser> {
+	  	return this.http.post<CreateUser>(this.new_user_url, create_user, httpOptions)
+	    .pipe(
+	      catchError(this.handleError('createUser', create_user))
 	    );
 	}
 
