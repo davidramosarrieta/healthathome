@@ -1,14 +1,16 @@
 <nav class="blue darken-1">
     <div class="nav-wrapper">
-        <a routerLink="/" class="brand-logo">SaludEnCasa</a>
+        <a routerLink="/" class="brand-logo" *ngIf="is_guest">SaludEnCasa</a>
+        <a routerLink="/categories" class="brand-logo" *ngIf="is_login">SaludEnCasa</a>
         <ul class="right hide-on-med-and-down">
-            <li routerLinkActive="active"><a routerLink="/home">Inicio</a></li>
+            <li routerLinkActive="active" *ngIf="is_guest"><a routerLink="/home">Inicio</a></li>
             <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/categories">Categorías</a></li>
             <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/products">Productos</a></li>
             <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/change-password">Cambiar contraseña</a></li>
             <li routerLinkActive="active" *ngIf="is_login"><a (click)="logout()">Salir</a></li>
         </ul>
     </div>
+    
 </nav>
 <div class="container">
     <div class="col m12 l12" style="height: 50px;"></div>
@@ -17,6 +19,7 @@
             <ul class="tabs tabs-fixed-width">
                 <li class="tab"><a href="#ingreso">Ingresar</a></li>
                 <li class="tab"><a href="#registro">Registrarse</a></li>
+                <li class="tab"><a href="#change-password">Cambio de Contraseña</a></li>
             </ul>
         </div>
         <div class="card-content grey lighten-4">
@@ -69,6 +72,9 @@
             </div>
             <div id="registro">
                 <app-register></app-register>  
+            </div>
+            <div id="change-password">
+                <app-change-password></app-change-password>  
             </div>
         </div>
     </div>

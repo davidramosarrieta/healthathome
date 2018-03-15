@@ -34,6 +34,6 @@ export class AppComponent {
 		this.is_login = false;
 		this.is_guest = true;
 		localStorage.removeItem('token');
-		this.router.navigate(['/home']);
+		location.reload(); 
 	}
 }

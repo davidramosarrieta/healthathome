@@ -20,8 +20,8 @@ export class RegisterComponent implements OnInit {
 		this.userService.createUser(value as CreateUser)
 		.subscribe(response => {
 			if(response['message'] == "Created") {
-				localStorage.setItem('change-password-message', 'Usuario creado correctamente. Le hemos enviado un correo con su contraseña, la cual debe cambiar aquí');
-				this.router.navigate(['/change-password']);
+				localStorage.setItem('change-password-message', 'Usuario creado correctamente. Su contraseña ha sido enviada a su correo.');
+				this.router.navigate(['/home']);
 			}
 		});
 	}

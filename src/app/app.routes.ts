@@ -15,7 +15,7 @@ const app_routes: Routes = [
   { path: 'categories', component: CategoriesComponent, canActivate: [LoginGuard] },
   { path: 'products', component: ProductsComponent, canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
-  { path: 'change-password', component: ChangePasswordComponent, canActivate: [LoginGuard]  },
+  { path: 'change-password', component: ChangePasswordComponent },
   { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 
