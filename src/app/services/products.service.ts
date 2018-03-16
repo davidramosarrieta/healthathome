@@ -7,7 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 
 
-import { LoginUser, CreateUser, ChangePassword } from '../class_objects/user';
+import { Product } from '../class_objects/product';
 
 
 const httpOptions = {
@@ -25,9 +25,9 @@ export class ProductsService {
 
 	private by_category_url = 'http://13.90.130.197/product/category/';
 
-	private new_user_url = 'http://13.90.130.197/user';
+	private by_name_url = 'http://13.90.130.197/product/name/';
 
-	private change_password_url = 'http://13.90.130.197/login/change-password';
+	private by_id_url = 'http://13.90.130.197/product/';
 
 	
 
@@ -36,26 +36,10 @@ export class ProductsService {
   	//getProductos(): Observable<any>{
     	//return this.http.get(this.login_url+'productos');
 	//}
+	/** GET product by category. Will 404 if id not found */
 
-	/** POST: log User */
-	logUser (login_user: LoginUser): Observable<LoginUser> {
-	  	return this.http.post<LoginUser>(this.login_url, login_user, httpOptions)
-	    .pipe(
-	      catchError(this.handleError)
-	    );
-	}
-
-	/** POST: log User */
-	createUser (create_user: CreateUser): Observable<CreateUser> {
-	  	return this.http.post<CreateUser>(this.new_user_url, create_user, httpOptions)
-	    .pipe(
-	      catchError(this.handleError)
-	    );
-	}
-
-	/** POST: log User */
-	changePasswordUser (change_password: ChangePassword): Observable<ChangePassword> {
-	  	return this.http.post<ChangePassword>(this.change_password_url, change_password, httpOptions)
+	byCategoryProduct (category: string ): Observable<Product> {
+	  	return this.http.get<Product>(this.by_category_url+category, httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );
