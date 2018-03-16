@@ -15,6 +15,7 @@ export class AppComponent {
 
 	is_login = localStorage.getItem('token') != null;
 	is_guest = localStorage.getItem('token') == null;
+	email_user_login = localStorage.getItem('email');
 
 	login(value: any): void {
 		if (!value['user'] || !value['password']) { return; }
@@ -23,6 +24,7 @@ export class AppComponent {
 			console.log(response);
 			if(response['token'] != null) {
 				localStorage.setItem('token', response['token']);
+				localStorage.setItem('email', value['user']);
 				this.is_login = true;
 				this.is_guest = false;
 				this.router.navigate(['/categories']);
@@ -34,6 +36,7 @@ export class AppComponent {
 		this.is_login = false;
 		this.is_guest = true;
 		localStorage.removeItem('token');
+		localStorage.removeItem('email');
 		location.reload(); 
 	}
 }

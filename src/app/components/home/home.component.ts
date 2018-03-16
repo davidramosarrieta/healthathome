@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 	constructor() { }
 	is_login = localStorage.getItem('token') != null;
 	is_guest = localStorage.getItem('token') == null;
+	email_user_login = localStorage.getItem('email');
 
 	ngOnInit() {
 	}

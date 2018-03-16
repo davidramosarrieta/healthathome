@@ -1,6 +1,9 @@
 <main style="padding-left: 300px;">
 	<app-shopping></app-shopping>
 	<app-products></app-products>
+	<li *ngFor="let product of products$ | async" >
+        {{product.name}}
+    </li>
 </main>
 <ul id="slide-out" class="side-nav fixed ">
     <li>
@@ -12,11 +15,16 @@
 				<h4>SaludEnCasa</h4>
 			</a>
 			<span class="white-text name">Bienvenido</span>
-			<a href="javascript:void(0);"><span class="white-text email">jdandturk@gmail.com</span></a>
+			<a href="javascript:void(0);"><span class="white-text email">{{ email_user_login }}</span></a>
 	    </div>
 	</li>
 	<li><a href="javascript:void(0);"><span>Categorías</span></a></li>
-    <li><a href="#!"><i class="material-icons">local_offer</i>First Link With Icon</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('1')"><i class="material-icons">local_offer</i>Niños</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('2')"><i class="material-icons">local_offer</i>Mamás</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('3')"><i class="material-icons">local_offer</i>Adultos</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('4')"><i class="material-icons">local_offer</i>Pomadas</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('5')"><i class="material-icons">local_offer</i>Pastillas</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('6')"><i class="material-icons">local_offer</i>Jarabes</a></li>
     <li><div class="divider"></div></li>
 </ul>
 

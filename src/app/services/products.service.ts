@@ -13,7 +13,7 @@ import { Product } from '../class_objects/product';
 const httpOptions = {
 	headers: new HttpHeaders({
 		'Content-Type':  'application/json',
-		'Authorization': ''
+		'Authorization': 'Bearer ' + localStorage.getItem('token')
 	})
 };
 if (localStorage.getItem('token')){
