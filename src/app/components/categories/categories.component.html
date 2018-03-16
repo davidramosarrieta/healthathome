@@ -1,2 +1,25 @@
-<app-shopping></app-shopping>
-<app-products></app-products>
+<main style="padding-left: 300px;">
+	<app-shopping></app-shopping>
+	<app-products></app-products>
+</main>
+<ul id="slide-out" class="side-nav fixed ">
+    <li>
+    	<div class="user-view blue darken-1">
+			<div class="background">
+
+			</div>
+			<a routerLink="/categories" class="brand-logo white-text" *ngIf="is_login">
+				<h4>SaludEnCasa</h4>
+			</a>
+			<span class="white-text name">Bienvenido</span>
+			<a href="javascript:void(0);"><span class="white-text email">jdandturk@gmail.com</span></a>
+	    </div>
+	</li>
+	<li><a href="javascript:void(0);"><span>Categorías</span></a></li>
+    <li><a href="#!"><i class="material-icons">local_offer</i>First Link With Icon</a></li>
+    <li><div class="divider"></div></li>
+</ul>
+
+<script type="text/javascript">
+	$('.button-collapse').sideNav('show');
+</script>

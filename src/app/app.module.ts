@@ -12,6 +12,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 
 //Services
 import { UserService } from './services/user.service';
+import { ProductsService } from './services/products.service';
 import { GuestGuard } from './guest.guard';
 import { LoginGuard } from './login.guard';
 
@@ -39,7 +40,7 @@ import { ShoppingComponent } from './components/shopping/shopping.component';
     HttpClientModule,
     app_routing,
   ],
-  providers: [UserService, GuestGuard, LoginGuard],
+  providers: [UserService, ProductsService, GuestGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
