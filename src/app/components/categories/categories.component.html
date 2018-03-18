@@ -1,9 +1,6 @@
 <main style="padding-left: 300px;">
 	<app-shopping></app-shopping>
 	<app-products></app-products>
-	<li *ngFor="let product of products$ | async" >
-        {{product.name}}
-    </li>
 </main>
 <ul id="slide-out" class="side-nav fixed ">
     <li>
@@ -19,12 +16,12 @@
 	    </div>
 	</li>
 	<li><a href="javascript:void(0);"><span>Categorías</span></a></li>
-    <li><a href="javascript:void(0);"  (click)="by_category_product('1')"><i class="material-icons">local_offer</i>Niños</a></li>
-    <li><a href="javascript:void(0);"  (click)="by_category_product('2')"><i class="material-icons">local_offer</i>Mamás</a></li>
-    <li><a href="javascript:void(0);"  (click)="by_category_product('3')"><i class="material-icons">local_offer</i>Adultos</a></li>
-    <li><a href="javascript:void(0);"  (click)="by_category_product('4')"><i class="material-icons">local_offer</i>Pomadas</a></li>
-    <li><a href="javascript:void(0);"  (click)="by_category_product('5')"><i class="material-icons">local_offer</i>Pastillas</a></li>
-    <li><a href="javascript:void(0);"  (click)="by_category_product('6')"><i class="material-icons">local_offer</i>Jarabes</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('1','Niños')"><i class="material-icons">local_offer</i>Niños</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('2','Mamás')"><i class="material-icons">local_offer</i>Mamás</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('3','Adultos')"><i class="material-icons">local_offer</i>Adultos</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('4','Pomadas')"><i class="material-icons">local_offer</i>Pomadas</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('5','Pastillas')"><i class="material-icons">local_offer</i>Pastillas</a></li>
+    <li><a href="javascript:void(0);"  (click)="by_category_product('6','Jarabes')"><i class="material-icons">local_offer</i>Jarabes</a></li>
     <li><div class="divider"></div></li>
 </ul>
 

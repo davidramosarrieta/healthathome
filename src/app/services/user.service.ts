@@ -12,7 +12,8 @@ import { LoginUser, CreateUser, ChangePassword } from '../class_objects/user';
 const httpOptions = {
 	headers: new HttpHeaders({
 		'Content-Type':  'application/json',
-		'Authorization': ''
+		'Authorization': '',
+		'Content-Security-Policy':'default-src "self" *http://13.90.130.197'
 	})
 };
 if (localStorage.getItem('token')){

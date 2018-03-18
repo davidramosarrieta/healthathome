@@ -10,18 +10,15 @@ import { catchError, map, tap, retry } from 'rxjs/operators';
 import { Product } from '../class_objects/product';
 
 
-const httpOptions = {
-	headers: new HttpHeaders({
-		'Content-Type':  'application/json',
-		'Authorization': 'Bearer ' + localStorage.getItem('token')
-	})
-};
-if (localStorage.getItem('token')){
-	httpOptions.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
-}
-
 @Injectable()
 export class ProductsService {
+
+	httpOptions = {
+		headers: new HttpHeaders({
+			'Content-Type':  'application/json',
+			'Authorization': 'Bearer ' + localStorage.getItem('token')
+		})
+	};
 
 	private by_category_url = 'http://13.90.130.197/product/category/';
 
@@ -39,7 +36,7 @@ export class ProductsService {
 	/** GET product by category. Will 404 if id not found */
 
 	byCategoryProduct (category: string ): Observable<Product> {
-	  	return this.http.get<Product>(this.by_category_url+category, httpOptions)
+	  	return this.http.get<Product>(this.by_category_url+category, this.httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );

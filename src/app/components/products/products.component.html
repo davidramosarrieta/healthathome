@@ -1,106 +1,21 @@
-<div class="row"> 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/unguento-morry-pomada.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body">
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/nino">Comprar</a> 
-      </div>
-    </div> 
-  </div> 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/AmoxicilinaAdulto.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body"> 
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/mama">Comprar</a> 
-      </div> 
-    </div> 
-  </div> 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/AmpicilinaAdulto.jpg" width="200" height="140"alt="Card image cap"> 
-      <div class="card-body"> 
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/adulto" >Comprar</a> 
-      </div> 
-    </div> 
-  </div> 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/boiron-avenoc-pomada.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body"> 
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/pomada">Comprar</a> 
-      </div> 
-    </div> 
-  </div> 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/medicamentojarabe.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body"> 
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/pastilla">Comprar</a> 
-      </div> 
-    </div> 
-  </div> 
-    <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/medicamentoniños.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body"> 
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/jarabe">Comprar</a> 
-      </div> 
-    </div> 
-  </div>
 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/medicinaniño.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body">
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/nino">Comprar</a> 
+<div class="row">
+  <h5>{{ name_selected_category }}</h5>
+</div>
+<div class="row"> 
+  <div class="col md4" *ngFor="let product of products ">
+    <div class="card" style="width: 18rem;">
+      <div class="card-image">
+        <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
+        <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
+      </div>
+      <div class="card-content">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="#" class="center" class="btn btn-primary" routerLink="/nino">Comprar</a> ${{ product.eachPrice}}
       </div>
     </div> 
-  </div> 
-  <div class="col md4"> 
-    <div class="card" style="width: 18rem;"> 
-      <img class="card-img-top" src="assets/imagenproducto/medijarabe.jpg" width="200" height="140" alt="Card image cap"> 
-      <div class="card-body"> 
-        <!--<h5 class="card-title">Card title</h5>--> 
-        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--> 
-        <a href="#" class="center" class="btn btn-primary" routerLink="/mama">Comprar</a> 
-      </div> 
-    </div> 
-  </div> 
- 
- 
-  <div class="col-md-4"> 
- 
-  </div> 
-  <div class="col-md-4"> 
- 
-  </div> 
-  <div class="col-md-4"> 
- 
- 
-  </div> 
- 
-  <div class="col-md-4"> 
- 
-  </div> 
-  <div class="col-md-4"> 
- 
- 
-  </div> 
-  <div class="col-md-4"> 
- 
   </div> 
 </div>
