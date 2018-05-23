@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 //Rutas
 import { app_routing } from './app.routes';
 import { ShoppingComponent } from './components/shopping/shopping.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 
@@ -34,7 +35,8 @@ import { ShoppingComponent } from './components/shopping/shopping.component';
     RegisterComponent,
     ChangePasswordComponent,
     CategoriesComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

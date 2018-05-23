@@ -10,26 +10,18 @@ import { ItemCart } from '../../class_objects/product';
 })
 export class ShoppingComponent implements OnInit {
 
-  constructor(private shoppingService: ShoppingService) { }
+  	constructor(private shoppingService: ShoppingService) { }
 
-  ngOnInit() {
-  }
+ 	length_cart : any;
 
-  add_item_cart(product_id: any, quantity: any): void {
-  	console.log(product_id);
-  	console.log(quantity);
-/*
-		if (!value['user']) { return; }
-		this.shoppingService.addItemCart(value as ItemCart)
-		.subscribe(response => {
-			console.log(response);
-			
-			if(response['message'] == "Created") {
-				localStorage.setItem('add-cart-message', 'Agregado al carrito');
-			}
-			
-		});
-		*/
+	ngOnInit() {
+		this.get_length_cart();
 	}
 
+ 	get_length_cart(): void {
+		this.shoppingService.getCart(null)
+		.subscribe(response => {
+			this.length_cart = response.items.length;
+		});
+	}
 }

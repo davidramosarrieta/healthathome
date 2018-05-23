@@ -5,7 +5,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 
-import { Category, Product, ItemCart } from '../class_objects/product';
+import { Category, Product, ItemCart, Cart } from '../class_objects/product';
 
 
 @Injectable()
@@ -20,6 +20,7 @@ export class ShoppingService {
 
 	private email_user_login = localStorage.getItem('email');
 	private new_item_cart_url = 'http://13.90.130.197/cart/add-product/'+this.email_user_login;
+	private get_cart_url = 'http://13.90.130.197/cart/';
 
 	constructor(public http: HttpClient) { }
 
@@ -29,6 +30,16 @@ export class ShoppingService {
 		console.log(add_item_cart);
 		console.log(this.httpOptions);
 	  	return this.http.post<ItemCart>(this.new_item_cart_url, add_item_cart, this.httpOptions)
+	    .pipe(
+	      catchError(this.handleError)
+	    );
+	}
+
+	getCart (email: string ): Observable<Cart> {
+		if(email == null) {
+			email = this.email_user_login;
+		}
+	  	return this.http.get<Cart>(this.get_cart_url+email, this.httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );
