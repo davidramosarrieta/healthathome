@@ -14,7 +14,7 @@
         <p class="card-text">{{product.description}}</p>
       </div>
       <div class="card-action">
-        <a href="#" class="center" class="btn btn-primary" routerLink="/nino">Comprar</a> ${{ product.eachPrice}}
+        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Comprar</a> ${{ product.eachPrice}}
       </div>
     </div> 
   </div> 

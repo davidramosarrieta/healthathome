@@ -13,6 +13,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 //Services
 import { UserService } from './services/user.service';
 import { ProductsService } from './services/products.service';
+import { ShoppingService } from './services/shopping.service';
+
 import { GuestGuard } from './guest.guard';
 import { LoginGuard } from './login.guard';
 
@@ -40,7 +42,7 @@ import { ShoppingComponent } from './components/shopping/shopping.component';
     HttpClientModule,
     app_routing,
   ],
-  providers: [UserService, ProductsService, GuestGuard, LoginGuard],
+  providers: [UserService, ProductsService, ShoppingService, GuestGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

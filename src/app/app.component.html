@@ -1,15 +1,19 @@
-
 <header>
     <nav class="blue darken-1">
         <div class="nav-wrapper">
             <a routerLink="/" class="brand-logo" *ngIf="is_guest">SaludEnCasa</a>
             <a routerLink="/categories" class="brand-logo" *ngIf="is_login">SaludEnCasa</a>
             <ul class="right hide-on-med-and-down">
+
+                <li routerLinkActive="active" *ngIf="is_login">
+                    <a routerLink="/shopping" style="padding-top: 10px; height: 70px;" class="tooltipped" data-position="bottom" data-tooltip="Ver carrito">
+                        <app-shopping></app-shopping>
+                    </a>
+                </li>
+
                 <li routerLinkActive="active" *ngIf="is_guest"><a routerLink="/home">Inicio</a></li>
                 <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/categories">Categorías</a></li>
-                <!--
-                <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/products">Productos</a></li>
-                -->
+
                 <li routerLinkActive="active" *ngIf="is_login"><a routerLink="/change-password">Cambiar contraseña</a></li>
                 <li routerLinkActive="active" *ngIf="is_login"><a (click)="logout()">Salir</a></li>
             </ul>

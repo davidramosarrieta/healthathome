@@ -15,3 +15,7 @@ export class Product {
 	volume: string;
 }
 
+export class ItemCart{
+	product: Product;
+	quantity: number;
+}
