@@ -32,7 +32,7 @@ export class ChangePasswordComponent implements OnInit {
 				if(this.is_login) {
 					this.router.navigate(['/categories']);
 				}else{
-					location.reload(); 
+					//location.reload(); 
 				}
 			},
 			error => {

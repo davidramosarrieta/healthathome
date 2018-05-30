@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-
-import {HttpClient, HttpClientModule, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap, retry } from 'rxjs/operators';
 
-
-import { Product } from '../class_objects/product';
+import { Category, Product, ItemCart, Cart } from '../class_objects/product';
 
 
 @Injectable()
-export class ProductsService {
+export class ShoppingService {
 
 	httpOptions = {
 		headers: new HttpHeaders({
@@ -20,23 +18,28 @@ export class ProductsService {
 		})
 	};
 
-	private by_category_url = 'http://13.90.130.197/product/category/';
+	private email_user_login = localStorage.getItem('email');
+	private new_item_cart_url = 'http://13.90.130.197/cart/add-product/'+this.email_user_login;
+	private get_cart_url = 'http://13.90.130.197/cart/';
 
-	private by_name_url = 'http://13.90.130.197/product/name/';
+	constructor(public http: HttpClient) { }
 
-	private by_id_url = 'http://13.90.130.197/product/';
+	/** POST: send ItemCart */
+	addItemCart (add_item_cart: ItemCart): Observable<ItemCart> {
+		var add_item_cart2 = JSON.stringify(add_item_cart);
+		console.log(add_item_cart);
+		console.log(this.httpOptions);
+	  	return this.http.post<ItemCart>(this.new_item_cart_url, add_item_cart, this.httpOptions)
+	    .pipe(
+	      catchError(this.handleError)
+	    );
+	}
 
-	
-
-  	constructor(public http: HttpClient) { }
-
-  	//getProductos(): Observable<any>{
-    	//return this.http.get(this.login_url+'productos');
-	//}
-	/** GET product by category. Will 404 if id not found */
-
-	byCategoryProduct (category: string ): Observable<Product> {
-	  	return this.http.get<Product>(this.by_category_url+category, this.httpOptions)
+	getCart (email: string ): Observable<Cart> {
+		if(email == null) {
+			email = this.email_user_login;
+		}
+	  	return this.http.get<Cart>(this.get_cart_url+email, this.httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );
@@ -55,7 +58,7 @@ export class ProductsService {
 	  } else {
 	    // The backend returned an unsuccessful response code.
 	    // The response body may contain clues as to what went wrong,
-	    console.error(
+	    alert(
 	      `Backend returned code ${error.status}, ` +
 	      `body was: ${error.error}`);
 	  }
@@ -67,5 +70,4 @@ export class ProductsService {
 	private log(message: string) {
 		console.log(message);
 	}
-
 }

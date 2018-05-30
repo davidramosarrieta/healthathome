@@ -15,3 +15,12 @@ export class Product {
 	volume: string;
 }
 
+export class ItemCart{
+	product: Product;
+	quantity: number;
+}
+
+export class Cart{
+	items: Array<ItemCart>;
+	user: string;
+}
