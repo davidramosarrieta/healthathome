@@ -26,9 +26,6 @@ export class ShoppingService {
 
 	/** POST: send ItemCart */
 	addItemCart (add_item_cart: ItemCart): Observable<ItemCart> {
-		var add_item_cart2 = JSON.stringify(add_item_cart);
-		console.log(add_item_cart);
-		console.log(this.httpOptions);
 	  	return this.http.post<ItemCart>(this.new_item_cart_url, add_item_cart, this.httpOptions)
 	    .pipe(
 	      catchError(this.handleError)

@@ -14,6 +14,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { UserService } from './services/user.service';
 import { ProductsService } from './services/products.service';
 import { ShoppingService } from './services/shopping.service';
+import { DataService } from './services/data.service';
 
 import { GuestGuard } from './guest.guard';
 import { LoginGuard } from './login.guard';
@@ -24,7 +25,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { app_routing } from './app.routes';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { CartComponent } from './components/cart/cart.component';
-
 
 
 @NgModule({
@@ -44,7 +44,7 @@ import { CartComponent } from './components/cart/cart.component';
     HttpClientModule,
     app_routing,
   ],
-  providers: [UserService, ProductsService, ShoppingService, GuestGuard, LoginGuard],
+  providers: [UserService, ProductsService, ShoppingService, DataService, GuestGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

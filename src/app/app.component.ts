@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginUser } from './class_objects/user';
 import { UserService } from './services/user.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +12,11 @@ import { UserService } from './services/user.service';
 export class AppComponent {
 
 	constructor(private userService: UserService, private router: Router) {}
+
+	ngOnInit() {
+		
+	}
+
 	title = 'app';
 
 	is_login = localStorage.getItem('token') != null;

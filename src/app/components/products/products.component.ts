@@ -4,6 +4,7 @@ import { Product, ItemCart } from '../../class_objects/product';
 import { ProductsService } from '../../services/products.service';
 import { ShoppingService } from '../../services/shopping.service';
 import { Location } from '@angular/common';
+import { DataService } from "../../services//data.service";
 
 @Component({
   selector: 'app-products',
@@ -11,8 +12,9 @@ import { Location } from '@angular/common';
   styles: []
 })
 export class ProductsComponent implements OnInit {
+	message:string;
 
-	constructor(private productsService: ProductsService, private shoppingService: ShoppingService, private route: ActivatedRoute, private location: Location) { }
+	constructor(private productsService: ProductsService, private shoppingService: ShoppingService, private route: ActivatedRoute, private location: Location, private data: DataService) { }
 
 	is_login = localStorage.getItem('token') != null;
 	is_guest = localStorage.getItem('token') == null;
@@ -24,6 +26,7 @@ export class ProductsComponent implements OnInit {
 	domain = 'http://13.90.130.197';
 	products: any;
 	item_cart: ItemCart;
+	length_cart : any;
 
 	ngOnInit() {
 		this.by_category_product(this.id, this.name_selected_category);
@@ -32,7 +35,6 @@ export class ProductsComponent implements OnInit {
 	by_category_product(value: string, name: string): void {
 		this.productsService.byCategoryProduct(value)
 		.subscribe(response => {
-			console.log(response);
 			this.products = response;
 			localStorage.setItem('selected_category', value);
 			localStorage.setItem('name_selected_category', name);
@@ -44,18 +46,27 @@ export class ProductsComponent implements OnInit {
 			product: product,
 			quantity: quantity
 		};
+		console.log('this.item_cart');
 		console.log(this.item_cart);
 
 		this.shoppingService.addItemCart(this.item_cart)
 		.subscribe(response => {
+			console.log('response');
 			console.log(response);
-			
-
-			localStorage.setItem('add-cart-message', 'Agregado al carrito');
-			
-			
 		});
+		this.get_length_cart();
+		this.get_length_cart();
+		this.get_length_cart();
+	}
 
+	get_length_cart(): void {
+		this.shoppingService.getCart(null)
+		.subscribe(response => {
+			this.length_cart = response.items.length;
+			console.log('this.length_cart:');
+			console.log(this.length_cart);
+			this.data.changeMessage(this.length_cart);
+		});
 	}
 	
 }
