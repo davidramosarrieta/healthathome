@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
   title: string = 'My first AGM project';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 6.217;
+  lng: number = -75.567;
+  zoom: number = 12;
   constructor() { }
 
   ngOnInit() {
