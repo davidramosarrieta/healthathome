@@ -4,13 +4,13 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class DataService {
 
-	private length_cart_messageSource = new BehaviorSubject<string>("0");
+	length_cart_messageSource = new BehaviorSubject<string>("0");
 	length_cartMessage = this.length_cart_messageSource.asObservable();
 
-	private selected_category_messageSource = new BehaviorSubject<any>(null);
+	selected_category_messageSource = new BehaviorSubject<any>(null);
 	selected_categoryMessage = this.selected_category_messageSource.asObservable();
 
-	private category_name_messageSource = new BehaviorSubject<string>("0");
+	category_name_messageSource = new BehaviorSubject<string>(" ");
 	category_nameMessage = this.category_name_messageSource.asObservable();
 
 	constructor() { }
