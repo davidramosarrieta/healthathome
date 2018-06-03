@@ -10,14 +10,14 @@ import { DataService } from "../../services//data.service";
   styleUrls: ['./shopping.component.css']
 })
 export class ShoppingComponent implements OnInit {
-	message:string;
+	length_cart_message:string;
 
   	constructor(private shoppingService: ShoppingService, private data: DataService) { }
 
  	length_cart : any;
 
 	ngOnInit() {
-		this.data.currentMessage.subscribe(message => this.length_cart = message);
+		this.data.length_cartMessage.subscribe(length_cart_message => this.length_cart = length_cart_message);
 		this.get_length_cart();
 	}
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../../class_objects/product';
 import { ProductsService } from '../../services/products.service';
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: 'app-categories',
@@ -10,7 +11,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class CategoriesComponent implements OnInit {
 
-	constructor(private productsService: ProductsService, private router: Router) { }
+	constructor(private productsService: ProductsService, private router: Router, private data: DataService) { }
 	is_login = localStorage.getItem('token') != null;
 	is_guest = localStorage.getItem('token') == null;
 	email_user_login = localStorage.getItem('email');

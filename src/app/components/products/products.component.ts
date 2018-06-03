@@ -4,7 +4,7 @@ import { Product, ItemCart } from '../../class_objects/product';
 import { ProductsService } from '../../services/products.service';
 import { ShoppingService } from '../../services/shopping.service';
 import { Location } from '@angular/common';
-import { DataService } from "../../services//data.service";
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: 'app-products',
@@ -65,7 +65,7 @@ export class ProductsComponent implements OnInit {
 			this.length_cart = response.items.length;
 			console.log('this.length_cart:');
 			console.log(this.length_cart);
-			this.data.changeMessage(this.length_cart);
+			this.data.change_length_cart_message(this.length_cart);
 		});
 	}
 	
