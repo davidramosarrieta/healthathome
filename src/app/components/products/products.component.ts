@@ -22,6 +22,7 @@ export class ProductsComponent implements OnInit {
 	
 	id = localStorage.getItem('selected_category');
 	name_selected_category = localStorage.getItem('name_selected_category');
+	search_product_name = "";
 	
 	domain = 'http://13.90.130.197';
 	products: any;
@@ -31,6 +32,7 @@ export class ProductsComponent implements OnInit {
 	ngOnInit() {
 		this.data.selected_categoryMessage.subscribe(value => this.products = value);
 		this.data.category_name_messageSource.subscribe(value => this.name_selected_category = value);
+		this.data.product_name_messageSource.subscribe(value => this.search_product_name = value);
 		this.by_category_product(this.id, this.name_selected_category);
 	}
 

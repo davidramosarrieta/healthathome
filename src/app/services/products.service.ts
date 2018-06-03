@@ -41,6 +41,13 @@ export class ProductsService {
 	    );
 	}
 
+	byNameProduct (name: string ): Observable<[Product]> {
+	  	return this.http.get<[Product]>(this.by_name_url+name, this.httpOptions)
+	    .pipe(
+	      catchError(this.handleError)
+	    );
+	}
+
 	/**
    * Handle Http operation that failed.
    * Let the app continue.

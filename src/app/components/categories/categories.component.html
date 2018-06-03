@@ -22,6 +22,25 @@
     <li><a href="javascript:void(0);"  (click)="by_category_product('5','Pastillas')"><i class="material-icons">local_offer</i>Pastillas</a></li>
     <li><a href="javascript:void(0);"  (click)="by_category_product('6','Jarabes')"><i class="material-icons">local_offer</i>Jarabes</a></li>
     <li><div class="divider"></div></li>
+    <li><a><i class="material-icons">search</i>Buscar por nombre:</a></li>
+    <li>
+    	<form #form="ngForm" (ngSubmit)="search(form.value)" class="col s12" role="form">
+            <div class="col s12 m12 l12" style="margin-left: 30px; margin-right: 10px;">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="name" type="text" class="validate" value="" required ngModel>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12" style="text-align: center;">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Buscar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </li>
 </ul>
 
 <script type="text/javascript">

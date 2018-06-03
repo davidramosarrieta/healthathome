@@ -29,7 +29,6 @@ export class CategoriesComponent implements OnInit {
 
 	by_category_product(value: string, name: string): void {
 		this.by_category_product_function(value, name);
-		//location.reload();
 	}
 
 	by_category_product_function(value: string, name: string) {
@@ -38,11 +37,31 @@ export class CategoriesComponent implements OnInit {
 		this.get_products(value, name);
 	}
 
+	search(value){
+		console.log(value);
+		if (!value['name']) { return; }
+		console.log(value['name']);
+		this.get_name_products(value['name']);
+	}
+
 	get_products(value: string, name: string): void {
 		this.productsService.byCategoryProduct(value)
 		.subscribe(response => {
 			this.products = response;
 			this.data.change_selected_category_message(this.products, name);
+		});
+	}
+
+	get_name_products(name: string): void {
+		this.productsService.byNameProduct(name)
+		.subscribe(response => {
+			this.products = response;
+			console.log(response);
+			if (!response) {
+				this.data.change_product_name_message(response, name+": 0 coincidencias.");
+				return; 
+			}
+			this.data.change_product_name_message([this.products], name);
 		});
 	}
 }
