@@ -26,7 +26,6 @@ export class ProductsService {
 
 	private by_id_url = 'http://13.90.130.197/product/';
 
-	
 
   	constructor(public http: HttpClient) { }
 
@@ -35,8 +34,8 @@ export class ProductsService {
 	//}
 	/** GET product by category. Will 404 if id not found */
 
-	byCategoryProduct (category: string ): Observable<Product> {
-	  	return this.http.get<Product>(this.by_category_url+category, this.httpOptions)
+	byCategoryProduct (category: string ): Observable<[Product]> {
+	  	return this.http.get<[Product]>(this.by_category_url+category, this.httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );
