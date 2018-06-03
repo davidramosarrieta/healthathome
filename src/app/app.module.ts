@@ -20,11 +20,14 @@ import { GuestGuard } from './guest.guard';
 import { LoginGuard } from './login.guard';
 
 import {HttpClientModule} from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
+
 
 //Rutas
 import { app_routing } from './app.routes';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { CartComponent } from './components/cart/cart.component';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -36,13 +39,17 @@ import { CartComponent } from './components/cart/cart.component';
     ChangePasswordComponent,
     CategoriesComponent,
     ShoppingComponent,
-    CartComponent
+    CartComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     app_routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAjMMSydfpWtUkHHSsdn6ZyouoEqIqTqlA'
+    })
   ],
   providers: [UserService, ProductsService, ShoppingService, DataService, GuestGuard, LoginGuard],
   bootstrap: [AppComponent]

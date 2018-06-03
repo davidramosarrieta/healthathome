@@ -8,6 +8,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from "./components/cart/cart.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
+import { MapComponent } from "./components/map/map.component";
 
 
 const app_routes: Routes = [
@@ -18,6 +19,7 @@ const app_routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'map', component: MapComponent},
   { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 
