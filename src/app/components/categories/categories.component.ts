@@ -29,11 +29,20 @@ export class CategoriesComponent implements OnInit {
 
 	by_category_product(value: string, name: string): void {
 		this.by_category_product_function(value, name);
-		location.reload();
+		//location.reload();
 	}
 
 	by_category_product_function(value: string, name: string) {
 		localStorage.setItem('selected_category', value);
 		localStorage.setItem('name_selected_category', name);
+		this.get_products(value, name);
+	}
+
+	get_products(value: string, name: string): void {
+		this.productsService.byCategoryProduct(value)
+		.subscribe(response => {
+			this.products = response;
+			this.data.change_selected_category_message(this.products, name);
+		});
 	}
 }

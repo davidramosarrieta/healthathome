@@ -29,6 +29,8 @@ export class ProductsComponent implements OnInit {
 	length_cart : any;
 
 	ngOnInit() {
+		this.data.selected_categoryMessage.subscribe(value => this.products = value);
+		this.data.category_name_messageSource.subscribe(value => this.name_selected_category = value);
 		this.by_category_product(this.id, this.name_selected_category);
 	}
 

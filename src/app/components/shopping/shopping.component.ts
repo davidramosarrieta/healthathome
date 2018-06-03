@@ -10,7 +10,6 @@ import { DataService } from "../../services//data.service";
   styleUrls: ['./shopping.component.css']
 })
 export class ShoppingComponent implements OnInit {
-	length_cart_message:string;
 
   	constructor(private shoppingService: ShoppingService, private data: DataService) { }
 

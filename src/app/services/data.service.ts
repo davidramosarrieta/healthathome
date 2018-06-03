@@ -7,7 +7,11 @@ export class DataService {
 	private length_cart_messageSource = new BehaviorSubject<string>("0");
 	length_cartMessage = this.length_cart_messageSource.asObservable();
 
-	
+	private selected_category_messageSource = new BehaviorSubject<any>(null);
+	selected_categoryMessage = this.selected_category_messageSource.asObservable();
+
+	private category_name_messageSource = new BehaviorSubject<string>("0");
+	category_nameMessage = this.category_name_messageSource.asObservable();
 
 	constructor() { }
 
@@ -15,5 +19,8 @@ export class DataService {
 		this.length_cart_messageSource.next(length_cart_message)
 	}
 
-
+	change_selected_category_message(products: any, name: string) {
+		this.selected_category_messageSource.next(products);
+		this.category_name_messageSource.next(name);
+	}
 }
