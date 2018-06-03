@@ -1,73 +1,92 @@
 <div class="row">
-  <h5>CARRITO DE COMPRAS</h5>
+   <div class="col s12">
+   	<p class="flow-text">CARRITO DE COMPRAS</p>
+   </div>
+   <div class="col s6">PRODUCTOS</div>
+   <div class="col s6">CANTIDAD</div>
 </div>
  
   <div class="row">
-    <div class="col s14 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="card-img-top">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Producto 1</p>
-        </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-image">
+        <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
+        <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
       </div>
-    </div>
+      <div class="card-content">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Eliminar</a> ${{ product.eachPrice}}
+      </div>
+    </div> 	
   </div>
 
     <div class="row">
-    <div class="col s20 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="card-img-top">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Producto 2</p>
-        </div>
+  <div class="card" style="width: 18rem;">
+      <div class="card-image">
+        <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
+        <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
       </div>
-    </div>
+      <div class="card-content">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Eliminar</a> ${{ product.eachPrice}}
+      </div>
+    </div> 
   </div>
 
       <div class="row">
-    <div class="col s26 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="card-img-top">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Producto 3</p>
-        </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-image">
+        <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
+        <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
       </div>
-    </div>
+      <div class="card-content">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Eliminar</a> ${{ product.eachPrice}}
+      </div>
+    </div> 
   </div>
 
         <div class="row">
-    <div class="col s32 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="card-img-top">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Producto 4</p>
-        </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-image">
+        <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
+        <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
       </div>
-    </div>
+      <div class="card-content">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Eliminar</a> ${{ product.eachPrice}}
+      </div>
+    </div> 
   </div>
 
-         <div class="row">
-    <div class="col s38 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="card-img-top">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Producto 5</p>
-        </div>
+   <div class="row">
+    <div class="card" style="width: 18rem;">
+      <div class="card-image">
+        <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
+        <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
       </div>
-    </div>
+      <div class="card-content">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Eliminar</a> ${{ product.eachPrice}}
+      </div>
+    </div> 
   </div>
+
+  <button class="btn waves-effect waves-light" type="submit" name="action" class="center">
+    <i class="material-icons right">COMPRAR</i>
+     <div class="col s4 m12" class="center"></div>
+  </button>
