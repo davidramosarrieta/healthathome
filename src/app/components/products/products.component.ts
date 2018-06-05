@@ -28,6 +28,7 @@ export class ProductsComponent implements OnInit {
 	products: any;
 	item_cart: ItemCart;
 	length_cart : any;
+	selected_quantities = [];
 
 	ngOnInit() {
 		this.data.selected_categoryMessage.subscribe(value => this.products = value);

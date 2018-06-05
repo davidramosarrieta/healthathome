@@ -3,18 +3,24 @@
   <h5>{{ name_selected_category }} {{ search_product_name }}</h5>
 </div>
 <div class="row"> 
-  <div class="col md4" *ngFor="let product of products ">
-    <div class="card" style="width: 18rem;">
+  <div class="col s12 m6 l6" *ngFor="let product of products ">
+    <div class="card">
       <div class="card-image">
         <img class="card-img-top" src="{{ domain+'/product/'+product.id+'/image/'+product.photos[0]}}" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] != 'string'">
         <img class="card-img-top" src="https://fidelizacion.federacioncomercioalbacete.com/images/productos/noimage.jpg" width="200" height="140" alt="Card image cap" *ngIf="product.photos[0] == 'string'">
       </div>
       <div class="card-content">
-        <h5 class="card-title">{{product.name}}</h5>
+        <h6 class="card-title">{{product.name}}</h6>
+        <h6 class="card-title">${{ product.eachPrice}}</h6>
         <p class="card-text">{{product.description}}</p>
       </div>
       <div class="card-action">
-        <a href="javascript:void(0);" (click)="add_item_cart( product , 1)" class="center" class="btn btn-primary">Comprar</a> ${{ product.eachPrice}}
+        <div class="input-field col s12 m5 l5" style="margin-top: 0px;">
+          <input [(ngModel)]="selected_quantities[product.id]" class="validate" type="number" min="1" max="100">
+          <label class="active" for="quantity">Cantidad</label>
+        </div>
+
+        <a href="javascript:void(0);" (click)="add_item_cart( product , selected_quantities[product.id]); selected_quantity = 1;" class="btn btn-primary">Comprar </a>
       </div>
     </div> 
   </div> 
