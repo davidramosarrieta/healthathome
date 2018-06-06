@@ -54,8 +54,8 @@ export class UserService {
 	}
 
 	/** POST: log User */
-	changePasswordUser (change_password: ChangePassword): Observable<ChangePassword> {
-	  	return this.http.post<ChangePassword>(this.change_password_url, change_password, httpOptions)
+	changePasswordUser (change_password: ChangePassword): Observable<any> {
+	  	return this.http.post<any>(this.change_password_url, change_password, httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );

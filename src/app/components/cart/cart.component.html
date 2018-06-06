@@ -39,6 +39,12 @@
             </h5>
         </div>
         <hr>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <h5>Total a pagar: ${{ total_to_pay }}</h5>
+                </div>
+            </div>
+        <hr>
         <form #form="ngForm" (ngSubmit)="pay_cart(form.value)" class="col s12" role="form">
             <div class="col s12 m6 l6">
                 <div class="row">

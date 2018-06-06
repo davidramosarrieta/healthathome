@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginUser } from './class_objects/user';
 import { UserService } from './services/user.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
 
-	constructor(private userService: UserService, private router: Router) {}
+	constructor(private userService: UserService, private router: Router, private toastr: ToastrService) {}
 
 	ngOnInit() {
 		
@@ -33,7 +33,10 @@ export class AppComponent {
 				localStorage.setItem('email', value['user']);
 				this.is_login = true;
 				this.is_guest = false;
+				this.toastr.success('Bienvenido');
 				this.router.navigate(['/categories']);
+			}else{
+				this.toastr.error('El usuario y la contraseña no coinciden');
 			}
 		});
 	}

@@ -28,18 +28,19 @@ export class ChangePasswordComponent implements OnInit {
 		this.userService.changePasswordUser(value as ChangePassword)
 		.subscribe(
 			response => {
-				console.log('response:');
-				console.log(response);
+				if(response == null) {
+					this.toastr.success('Cambio exitoso');
+				}else if(response.message == "Incorrect password"){
+					this.toastr.error('Contraseña incorrecta');
+				}
+
 				if(this.is_login) {
 					this.router.navigate(['/categories']);
-					
 				}else{
 					//location.reload(); 
 				}
-				this.toastr.success('Cambio exitoso');
 			},
 			error => {
-				
 				console.log('error:');
 				console.log(error);
 			}

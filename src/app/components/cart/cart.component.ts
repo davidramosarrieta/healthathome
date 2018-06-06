@@ -5,6 +5,7 @@ import { ProductsService } from '../../services/products.service';
 import { ShoppingService } from '../../services/shopping.service';
 import { Location } from '@angular/common';
 import { DataService } from "../../services/data.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ import { DataService } from "../../services/data.service";
 })
 export class CartComponent implements OnInit {
 
-  	constructor(private shoppingService: ShoppingService, private route: ActivatedRoute, private location: Location, private data: DataService) { }
+  	constructor(private shoppingService: ShoppingService, private route: ActivatedRoute, private location: Location, private data: DataService, private toastr: ToastrService) { }
 
 	is_login = localStorage.getItem('token') != null;
 	is_guest = localStorage.getItem('token') == null;
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
 	items: any;
 	length_cart : any;
 	pay_cart_values: any;
+	total_to_pay: number;
 
 	ngOnInit() {
 		this.get_cart();
@@ -46,7 +48,19 @@ export class CartComponent implements OnInit {
 
 			console.log('this.items:');
 			console.log(this.items);
+			this.calculate_total_to_pay(this.items);
 		});
+	}
+
+	calculate_total_to_pay( elements:any){
+		this.total_to_pay = 0;
+		console.log('for:');
+		for (let prop in elements) {
+	    	console.log(elements[prop]['product']['eachPrice']);
+	    	console.log(elements[prop]['quantity']);
+	    	this.total_to_pay = (elements[prop]['product']['eachPrice'] * elements[prop]['quantity']) + this.total_to_pay;
+
+		}
 	}
 
 	pay_cart(value: any): void {
@@ -93,7 +107,10 @@ export class CartComponent implements OnInit {
 			console.log(response);
 			if(response.hasError == false) {
 				localStorage.setItem('last_pay_code', response.message);
+				this.toastr.success('Pedido realizado correctamente.');
 				location.reload();
+			}else{
+				this.toastr.error('Pedido no generado. Rectifique e intente nuevamente.');
 			}
 		});
 	}
