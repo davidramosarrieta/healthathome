@@ -26,13 +26,16 @@ import {HttpClientModule} from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 
 //Firebase
-
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+export  const firebase = environment.firebase;
 
 //Rutas
 import { app_routing } from './app.routes';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MapComponent } from './components/map/map.component';
+
 
 
 @NgModule({
@@ -56,7 +59,8 @@ import { MapComponent } from './components/map/map.component';
       apiKey: 'AIzaSyAjMMSydfpWtUkHHSsdn6ZyouoEqIqTqlA'
     }),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularFireModule.initializeApp(firebase)
   ],
   providers: [UserService, ProductsService, ShoppingService, DataService, GuestGuard, LoginGuard],
   bootstrap: [AppComponent]
