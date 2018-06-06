@@ -21,6 +21,7 @@ export class ShoppingService {
 	private email_user_login = localStorage.getItem('email');
 	private new_item_cart_url = 'http://13.90.130.197/cart/add-product/'+this.email_user_login;
 	private get_cart_url = 'http://13.90.130.197/cart/';
+	private pay_cart_url = 'http://13.90.130.197/cart/pay/';
 
 	constructor(public http: HttpClient) { }
 
@@ -37,6 +38,14 @@ export class ShoppingService {
 			email = this.email_user_login;
 		}
 	  	return this.http.get<Cart>(this.get_cart_url+email, this.httpOptions)
+	    .pipe(
+	      catchError(this.handleError)
+	    );
+	}
+
+	/** POST: send PayCart */
+	payCart (pay: any): Observable<any> {
+	  	return this.http.post<any>(this.pay_cart_url, pay, this.httpOptions)
 	    .pipe(
 	      catchError(this.handleError)
 	    );
