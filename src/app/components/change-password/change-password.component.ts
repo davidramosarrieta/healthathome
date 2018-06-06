@@ -5,6 +5,7 @@ import { ChangePassword } from '../../class_objects/user';
 
 import { Router } from "@angular/router";
 import { Toast } from 'materialize-css/js/toasts.js';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-change-password',
@@ -17,7 +18,7 @@ export class ChangePasswordComponent implements OnInit {
 	is_guest = localStorage.getItem('token') == null;
 
 	change_password_message = localStorage.getItem('change-password-message');
-	constructor(private userService: UserService, private router: Router) {}
+	constructor(private userService: UserService, private router: Router, private toastr: ToastrService) {}
 
 	ngOnInit() {
 	}
@@ -31,11 +32,14 @@ export class ChangePasswordComponent implements OnInit {
 				console.log(response);
 				if(this.is_login) {
 					this.router.navigate(['/categories']);
+					
 				}else{
 					//location.reload(); 
 				}
+				this.toastr.success('Cambio exitoso');
 			},
 			error => {
+				
 				console.log('error:');
 				console.log(error);
 			}
