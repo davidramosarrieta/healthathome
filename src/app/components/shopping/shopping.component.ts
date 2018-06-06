@@ -24,6 +24,7 @@ export class ShoppingComponent implements OnInit {
 		this.shoppingService.getCart(null)
 		.subscribe(response => {
 			console.log('sc');
+			console.log(response);
 			this.length_cart = response.items.length;
 		});
 	}
