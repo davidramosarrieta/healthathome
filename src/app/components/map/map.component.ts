@@ -7,14 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  title: string = 'My first AGM project';
-  lat: number = 6.217;
-  lng: number = -75.567;
+  
+  lat: number; 
+  lng: number; 
   zoom: number = 12;
+
+
   constructor() { }
 
   ngOnInit() {
-   
+   this.getUserLocation()
+  }
+
+  private getUserLocation() {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(Position => {
+        this.lat=Position.coords.latitude;
+        this.lng=Position.coords.longitude;
+      });
+    }
   }
 
 }
